@@ -15,9 +15,16 @@ function newGrid() {
 
 newGrid()
 
-let gridBox = document.querySelector('.box');
 document.addEventListener('mouseover', function(e) {
     if (e.target.localName == 'a') {
         e.target.style.backgroundColor = 'black';
+    }
+})
+
+const clearBtn = document.querySelector('#clear');
+clearBtn.addEventListener('click', function() {
+    let boxes = document.getElementsByTagName('a');
+    for (let i = 0; i < boxes.length; i++) {
+        boxes[i].style.backgroundColor = 'antiquewhite';
     }
 })
