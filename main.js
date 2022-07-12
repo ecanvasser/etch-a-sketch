@@ -15,9 +15,10 @@ function newGrid() {
 
 newGrid()
 
-document.addEventListener('mouseover', function(e) {
+grid.addEventListener('mouseover', function(e) {
     if (e.target.localName == 'a') {
         e.target.style.backgroundColor = 'black';
+        console.log('good')
     }
 })
 
