@@ -1,11 +1,11 @@
 let grid = document.querySelector('.grid-container');
 
-function newGrid() {
-    for (let i = 0; i < 80; i++) {
+function newGrid(rows, cols) {
+    for (let i = 0; i < rows; i++) {
         let newRow = document.createElement('div');
         newRow.classList.add('row');
         grid.appendChild(newRow);
-        for (let i = 0; i < 80; i++) {
+        for (let i = 0; i < cols; i++) {
             let newBox = document.createElement('a');
             newBox.classList.add('box');
             newRow.appendChild(newBox);
@@ -13,12 +13,11 @@ function newGrid() {
     }
 }
 
-newGrid()
+newGrid(40, 40)
 
 grid.addEventListener('mouseover', function(e) {
     if (e.target.localName == 'a') {
         e.target.style.backgroundColor = 'black';
-        console.log('good')
     }
 })
 
@@ -28,4 +27,12 @@ clearBtn.addEventListener('click', function() {
     for (let i = 0; i < boxes.length; i++) {
         boxes[i].style.backgroundColor = 'antiquewhite';
     }
+})
+
+const newGridBtn = document.querySelector('#new-grid');
+let rowBox = document.querySelector('.row');
+let colBox = document.querySelector('.column');
+newGridBtn.addEventListener('click', function() {
+    grid.innerHTML = '';
+    newGrid(rowBox.value, colBox.value);
 })
